@@ -53,87 +53,87 @@
 
 `` `
 .
-├── التطبيق
-│ ├── app.js
-│ ├── التحكم
-│ │ ├── المنزل
-│ │ │ ├── FirstCtrl.js
-│ │ │ └── SecondCtrl.js
-│ │ └── حول
-│ │ └── ThirdCtrl.js
-│ المبادئ التوجيهية ├──
-│ │ ├── المنزل
-│ │ │ └── directive1.js
-│ │ └── حول
-│ │ ├── directive2.js
-│ │ └── directive3.js
-│ ├── المرشحات
-│ │ ├── المنزل
-│ │ └── حول
-│ └── الخدمات
-│ ├── CommonService.js
-│ ├── الكاش
-│ │ ├── Cache1.js
-│ │ └── Cache2.js
-│ └── نماذج
-│ ├── Model1.js
-│ └── Model2.js
-├── جزئيات
-├── ليب
-└── اختبار
+├── app
+│   ├── app.js
+│   ├── controllers
+│   │   ├── home
+│   │   │   ├── FirstCtrl.js
+│   │   │   └── SecondCtrl.js
+│   │   └── about
+│   │       └── ThirdCtrl.js
+│   ├── directives
+│   │   ├── home
+│   │   │   └── directive1.js
+│   │   └── about
+│   │       ├── directive2.js
+│   │       └── directive3.js
+│   ├── filters
+│   │   ├── home
+│   │   └── about
+│   └── services
+│       ├── CommonService.js
+│       ├── cache
+│       │   ├── Cache1.js
+│       │   └── Cache2.js
+│       └── models
+│           ├── Model1.js
+│           └── Model2.js
+├── partials
+├── lib
+└── test
 `` `
 
 * إنشاء قسم رفيع المستوى من الأداء الوظيفي وانخفاض نوع مستوى المكونات. هنا مخطط له:
 
 `` `
 .
-├── التطبيق
-│ ├── app.js
-│ ├── المشترك
-│ │ ├── التحكم
-│ │ ├── المبادئ التوجيهية
-│ │ ├── المرشحات
-│ │ └── الخدمات
-│ ├── المنزل
-│ │ ├── التحكم
-│ │ │ ├── FirstCtrl.js
-│ │ │ └── SecondCtrl.js
-│ │ ├── المبادئ التوجيهية
-│ │ │ └── directive1.js
-│ │ ├── المرشحات
-│ │ │ ├── filter1.js
-│ │ │ └── filter2.js
-│ │ └── الخدمات
-│ │ ├── Service1.js
-│ │ └── service2.js
-│ └── حول
-│ ├── التحكم
-│ │ └── ThirdCtrl.js
-│ المبادئ التوجيهية ├──
-│ │ ├── directive2.js
-│ │ └── directive3.js
-│ ├── المرشحات
-│ │ └── filter3.js
-│ └── الخدمات
-│ └── service3.js
-├── جزئيات
-├── ليب
-└── اختبار
+├── app
+│   ├── app.js
+│   ├── common
+│   │   ├── controllers
+│   │   ├── directives
+│   │   ├── filters
+│   │   └── services
+│   ├── home
+│   │   ├── controllers
+│   │   │   ├── FirstCtrl.js
+│   │   │   └── SecondCtrl.js
+│   │   ├── directives
+│   │   │   └── directive1.js
+│   │   ├── filters
+│   │   │   ├── filter1.js
+│   │   │   └── filter2.js
+│   │   └── services
+│   │       ├── service1.js
+│   │       └── service2.js
+│   └── about
+│       ├── controllers
+│       │   └── ThirdCtrl.js
+│       ├── directives
+│       │   ├── directive2.js
+│       │   └── directive3.js
+│       ├── filters
+│       │   └── filter3.js
+│       └── services
+│           └── service3.js
+├── partials
+├── lib
+└── test
 `` `
 
 * عند وضع مبادئ توجيهية، فإنه قد يكون من المناسب وضع كافة الملفات المرتبطة التوجيه (قوالب، CSS ملفات / ساس، وجافا سكريبت) في مجلد واحد. إذا اخترت استخدام هذا النمط شجرة، تكون متسقة واستخدامها في جميع أنحاء المشروع.
 
 `` `
-التطبيق
-└── المبادئ التوجيهية
-    ├── directive1
-    │ ├── directive1.html
-    │ ├── directive1.js
-    │ └── directive1.sass
-    └── directive2
-        ├── directive2.html
-        ├── directive2.js
-        └── directive2.sass
+app
+└── directives
+    ├── directive1
+    │   ├── directive1.html
+    │   ├── directive1.js
+    │   └── directive1.sass
+    └── directive2
+        ├── directive2.html
+        ├── directive2.js
+        └── directive2.sass
 `` `
 
 هذا النهج يمكن الجمع بين كل من بنية الدليل أعلاه.
@@ -141,13 +141,13 @@
 * والتي كانت واحدة الاختلاف الأخير من بنية الدليل اثنين في [نغ-النمطي] (http://joshdmiller.github.io/ng-boilerplate/#/home). في ذلك، وحدة الاختبارات لمكون معين في نفس المجلد مثل عنصر. بهذه الطريقة، عند تغيير عنصر معين، فمن السهل أن تجد تجاربها. الاختبارات أيضا أن تأخذ مكان لإظهار الوثائق واستخدام الحالات.
 
 `` `
-الخدمات
-├── الكاش
-│ ├── cache1.js
-│ └── cache1.spec.js
-└── نماذج
-    ├── model1.js
-    └── model1.spec.js
+services
+├── cache
+│   ├── cache1.js
+│   └── cache1.spec.js
+└── models
+    ├── model1.js
+    └── model1.spec.js
 `` `
 
 * و`ملف app.js` يحتوي على تعريف الطرق والتكوين و / أو فتيلة اليدوي (إذا لزم الأمر).
@@ -163,30 +163,30 @@
 [TLDR;](http://developer.yahoo.com/blogs/ydn/high-performance-sites-rule-6-move-scripts-bottom-7200.html) وضع البرامج النصية أسفل جدا.
 
 `` `
-<! DOCTYPE HTML>
-<الاكواد لانج = "EN">
-<رئيس>
-  <محارف ميتا = "UTF-8">
-  <عنوان> اسم التطبيق </ عنوان>
-</ رئيس>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>MyApp</title>
+</head>
 <body>
-  <div نانوغرام التطبيق = "اسم التطبيق">
-    <div نانوغرام الرؤية> </ div>
-  </ div>
-  <سيناريو SRC = "angular.js"> </ script>
-  <سيناريو SRC = "app.js"> </ script>
-</ الجسم>
-</ HTML>
+  <div ng-app="myApp">
+    <div ng-view></div>
+  </div>
+  <script src="angular.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
 `` `
 
 حفظ الأشياء بسيطة وإلى مبادئ توجيهية محددة من AngularJS آخر. بهذه الطريقة فمن السهل للتحقق من رمز وايجاد تحسينات في HTML التي يقدمها الإطار (الذي يفيد الصيانة).
 
 `` `
-<فئة النموذج = "FRM" نانوغرام يقدم = "login.authenticate ()">
-  <div>
-    <الإدخال الطبقة = "IPT" نوع = "نص" نائبا = "اسم" تتطلب نانوغرام طراز = "user.name">
-  </ div>
-</ النموذج>
+<form class="frm" ng-submit="login.authenticate()">
+  <div>
+    <input class="ipt" type="text" placeholder="name" require ng-model="user.name">
+  </div>
+</form>
 `` `
 
 يجب أن سمات HTML أخرى متابعة توصيات [رمز الدليل] (http://mdo.github.io/code-guide/#html-attribute-order) مارك أوتو.
@@ -234,12 +234,12 @@ gulp.src ( "./ SRC / *. شبيبة")
 * لا تستخدم البادئة `` $ لأسماء المتغيرات والخصائص والأساليب. محجوز هذا بادئة لAngularJS الاستخدام.
 * عندما حل تبعيات التبعيات من نظام حقن (التبعية حقن، DI) من AngularJS، نوع تبعيات في نوع و[مدش]؛ تبعيات متكاملة AngularJS الأول، وجاء لك:
 
-`` `جافا سكريبت
-module.factory ( 'خدمة'، وظيفة ($ rootScope، $ المهلة، MyCustomDependency1، MyCustomDependency2) {
-  {عودة
-    // شيء
-  }؛
-})؛
+`` `javascript
+module.factory('Service', function ($rootScope, $timeout, MyCustomDependency1, MyCustomDependency2) {
+  return {
+    //Something
+  };
+});
 `` `
 
 #Modules
@@ -260,28 +260,28 @@ module.factory ( 'خدمة'، وظيفة ($ rootScope، $ المهلة، MyCusto
 * لا ينبغي أن تكون محددة وحدة تحكم في السياق العالمي (على الرغم من تصاريح qu'AngularJS، وهذا هو عادة سيئة من تلويث مساحة العالمي).
 * تعيين وحدات التحكم باستخدام الجداول:
 
-`` جافا سكريبت
-module.controller ( 'MyCtrl' [ 'Dependency1'، 'dependency2'، ...، 'dependencyn، وظيفة (Dependency1، dependency2، ...، dependencyn) {
-  //...body
-}])؛
+`` JavaScript
+module.controller('MyCtrl', ['dependency1', 'dependency2', ..., 'dependencyn', function (dependency1, dependency2, ..., dependencyn) {
+  //...body
+}]);
 `` `
 
 هذا التعريف يتجنب المشاكل مع تصغير الحجم. يمكنك توليد تعريف المصفوفة تلقائيا باستخدام أدوات مثل [نغ-علق] (https://github.com/olov/ng-annotate) (ومهمة نخر [نخر-NG-علق] (HTTPS : //github.com/mzgol/grunt-ng-annotate)).
 * استخدام الأسماء الأصلية من تبعيات وحدة تحكم. هذا وسوف تساعدك على إنتاج رمز أكثر قابلية للقراءة:
 
-`` جافا سكريبت
-module.controller ( 'MyCtrl' [ '$ نطاق، وظيفة (ق) {
-  //...body
-}])؛
+``JavaScript
+module.controller('MyCtrl', ['$scope', function (s) {
+  //...body
+}]);
 `` `
 
 أقل قابلية للقراءة
 
-`` جافا سكريبت
-module.controller ( 'MyCtrl' [ '$ نطاق، وظيفة ($ نطاق) {
-  //...body
-}])؛
-`` `
+```JavaScript
+module.controller('MyCtrl', ['$scope', function ($scope) {
+  //...body
+}]);
+```
 
 هذا ينطبق بشكل خاص على ملف يحتوي خطوط عديدة من التعليمات البرمجية التي سوف تحتاج إلى التمرير. وهذا يمكن أن تجعلك تنسى الذي متغير يرتبط إلى أي التبعية.
 
@@ -290,46 +290,46 @@ module.controller ( 'MyCtrl' [ '$ نطاق، وظيفة ($ نطاق) {
 * تقديم قائمة من جميع الرسائل التي تم تمريرها باستخدام `` emit` $ و $ broadcast`، والتعامل معه بعناية بسبب الصراعات اسم والبق الممكنة.
 على سبيل المثال:
 
-   `` جافا سكريبت
-   // app.js
-   / * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-   أحداث مخصصة:
-     - 'إذن، رسالة "- وصف للرسالة
-       - {المستخدم، دور، والعمل} - نماذج البيانات
-         - المستخدم - سلسلة، خامسة يحتوي على اسم المستخدم
-         - دور - معرف للدور المستخدم
-         - العمل - محدد أوجه المستخدم يحاول أداء
-   * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * /
-   `` `
+ ```JavaScript
+   // app.js
+   /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+   Custom events:
+     - 'authorization-message' - description of the message
+       - { user, role, action } - data format
+         - user - a string, which contains the username
+         - role - an ID of the role the user has
+         - action - specific ation the user tries to perform
+   * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+   ```
 * إذا كنت بحاجة إلى تنسيق البيانات ثم لف منطق التنسيق في [فلتر] (# فلتر) وتعلن بأنها تبعية:
 
-`` جافا سكريبت
-module.filter ( 'myFormat، وظيفة () {
-  عودة وظيفة () {
-    // الجسم ...
-  }؛
-})؛
+```JavaScript
+module.filter('myFormat', function () {
+  return function () {
+    //body...
+  };
+});
 
-module.controller ( 'MyCtrl' [ '$ نطاق'، 'myFormatFilter، وظيفة (نطاق $، myFormatFilter) {
-  // الجسم ...
-}])؛
-`` `
+module.controller('MyCtrl', ['$scope', 'myFormatFilter', function ($scope, myFormatFilter) {
+  //body...
+}]);
+```
 
 * ومن الأفضل استخدام بناء الجملة `as` تحكم:
 
-  `` `
-  <div نانوغرام تحكم = "MAINCTRL الآس اليد">
-     {{}} Main.title
-  </ div>
-  `` `
+  ```
+  <div ng-controller="MainCtrl as main">
+     {{ main.title }}
+  </div>
+  ```
 
-  `` جافا سكريبت
-  app.controller ( 'MAINCTRL "MAINCTRL)؛
+  ```JavaScript
+  app.controller('MainCtrl', MainCtrl);
 
-  وظيفة MAINCTRL () {
-    this.title = 'بعض عنوان'؛
-  }
-  `` `
+  function MainCtrl () {
+    this.title = 'Some title';
+  }
+  ```
 
    المزايا الرئيسية لاستخدام بناء الجملة التالي:
    * إنشاء المكونات الفردية - الخصائص المتعلقة ليست جزءا من `$ scope` سلسلة النماذج. هذا هو ممارسة جيدة منذ إرث `النموذج $ scope` لديه بعض العوائق الرئيسية (ربما كان هذا السبب في أنه صراط حذف الزاوي 2):
@@ -345,51 +345,51 @@ module.controller ( 'MyCtrl' [ '$ نطاق'، 'myFormatFilter، وظيفة (نط
 * تجنب كتابة منطق الأعمال في وحدة تحكم. نقل منطق الأعمال إلى `modèle` من خلال الخدمة.
   مثلا:
 
-  `` جافا سكريبت
-  // هذا هو السلوك الشائع (مثالا سيئا) استخدام وحدة تحكم لتنفيذ منطق الأعمال.
-  angular.module ( 'مخزن'، [])
-  .controller ( 'OrderCtrl، وظيفة ($ نطاق) {
+  ```Javascript
+  //Ceci est un comportement répandu (mauvais exemple) d'utiliser le contrôleur pour implémenter la logique métier.
+  angular.module('Store', [])
+  .controller('OrderCtrl', function ($scope) {
 
-    $ Scope.items = []؛
+    $scope.items = [];
 
-    $ Scope.addToOrder = وظيفة (البند) {
-      $ Scope.items.push (البند)؛ // -> منطق الأعمال في وحدة تحكم
-    }؛
+    $scope.addToOrder = function (item) {
+      $scope.items.push(item);//-->Logique métier dans le contrôleur
+    };
 
-    $ Scope.removeFromOrder = وظيفة (البند) {
-      $ Scope.items.splice ($ scope.items.indexOf (البند)، 1)؛ // -> منطق الأعمال في وحدة تحكم
-    }؛
+    $scope.removeFromOrder = function (item) {
+      $scope.items.splice($scope.items.indexOf(item), 1);//-->Logique métier dans le contrôleur
+    };
 
-    $ Scope.totalPrice = وظيفة () {
-      عودة scope.items.reduce $ (وظيفة (مذكرة، البند) {
-        عودة مذكرة + (* item.qty item.price)؛ // -> منطق الأعمال في وحدة تحكم
-      }، 0)؛
-    }؛
-  })؛
-  `` `
+    $scope.totalPrice = function () {
+      return $scope.items.reduce(function (memo, item) {
+        return memo + (item.qty * item.price);//-->Logique métier dans le contrôleur
+      }, 0);
+    };
+  });
+  ```
 
   عند استخدام خدمة ك "نموذج" لتنفيذ منطق الأعمال، وهذا ما يبدو وحدة تحكم مثل (انظر "استخدام خدمة مثل نموذج الخاص بك لتنفيذ خدمة طراز):
 
-  `` جافا سكريبت
-  // يستخدم ترتيب ك "نموذج"
-  angular.module ( 'مخزن'، [])
-  .controller ( 'OrderCtrl، وظيفة (الأمر) {
+   ```Javascript
+  //Order est utilisé comme un 'modèle'
+  angular.module('Store', [])
+  .controller('OrderCtrl', function (Order) {
 
-    $ Scope.items = order.items.
+    $scope.items = Order.items;
 
-    $ Scope.addToOrder = وظيفة (البند) {
-      Order.addToOrder (البند)؛
-    }؛
+    $scope.addToOrder = function (item) {
+      Order.addToOrder(item);
+    };
 
-    $ Scope.removeFromOrder = وظيفة (البند) {
-      Order.removeFromOrder (البند)؛
-    }؛
+    $scope.removeFromOrder = function (item) {
+      Order.removeFromOrder(item);
+    };
 
-    $ Scope.totalPrice = وظيفة () {
-      Order.total العودة ()؛
-    }؛
-  })؛
-  `` `
+    $scope.totalPrice = function () {
+      return Order.total();
+    };
+  });
+  ```
 
   لماذا تنفيذ منطق الأعمال في وحدة تحكم هو ممارسة سيئة؟
   * يتم إنشاء مثيل وحدات تحكم لكل طريقة عرض HTML ويتم تدمير تفريغ البصر.
@@ -399,27 +399,26 @@ module.controller ( 'MyCtrl' [ '$ نطاق'، 'myFormatFilter، وظيفة (نط
 * في حالة وحدات تحكم جزءا لا يتجزأ من استخدام نطاقات متداخلة (مع `controllerAs`)
 
 ** ** App.js
-`` `جافا سكريبت
-module.config (وظيفة ($ routeProvider) {
-  $ routeProvider
-    . عندما ( '/ المسار'، {
-      templateURL "جزئيات / template.html"
-      تحكم: "HomeCtrl"
-      controllerAs 'الوطن'
-    })؛
-})؛
-`` `
+```javascript
+module.config(function ($routeProvider) {
+  $routeProvider
+    .when('/route', {
+      templateUrl: 'partials/template.html',
+      controller: 'HomeCtrl',
+      controllerAs: 'home'
+    });
+});
+```
 ** ** HomeCtrl
-`` `جافا سكريبت
-وظيفة HomeCtrl () {
-  this.bindingValue = 42؛
+```javascript
+function HomeCtrl() {
+  this.bindingValue = 42;
 }
-`` `
-** ** Template.html
-`` `
-<div نانوغرام ربط = "home.bindingValue"> </ div>
-`` `
-
+```
+**template.html**
+```
+<div ng-bind="home.bindingValue"></div>
+```
 #Directives
 
 * اسم المبادئ التوجيهية الخاصة بك lowerCamelCase
@@ -445,72 +444,72 @@ module.config (وظيفة ($ routeProvider) {
 * اسم خدمات camelCase الخاص بك:
   * UpperCamelCase (PascalCase) لخدماتك تستخدم بناه، أي :
 
-`` جافا سكريبت
-module.controller ( 'MAINCTRL، وظيفة (نطاق $، العضو) {
-  $ Scope.user = العضو الجديد ( 'فو'، 42)؛
-})؛
+```JavaScript
+module.controller('MainCtrl', function ($scope, User) {
+  $scope.user = new User('foo', 42);
+});
 
-module.factory ( "المستخدم"، وظيفة () {
-  وظيفة عودة العضو (الاسم، العمر) {
-    this.name = الاسم؛
-    this.age = العمر؛
-  }؛
-})؛
-`` `
+module.factory('User', function () {
+  return function User(name, age) {
+    this.name = name;
+    this.age = age;
+  };
+});
+```
 
   * LowerCamel لجميع الخدمات الأخرى.
 
 * لف منطق الأعمال في الخدمات.
 * و`طريقة service` هو الأفضل the` factory` الأسلوب. بهذه الطريقة يمكننا الاستمتاع بالتراث الكلاسيكي أكثر سهولة:
 
-`` جافا سكريبت
-وظيفة الإنسان () {
-  // الجسم
+```JavaScript
+function Human() {
+  //body
 }
-Human.prototype.talk = وظيفة () {
-  العودة "أنا أتحدث".
-}؛
+Human.prototype.talk = function () {
+  return "I'm talking";
+};
 
-وظيفة مطور () {
-  // الجسم
+function Developer() {
+  //body
 }
-Developer.prototype = Object.create (Human.prototype)؛
-Developer.prototype.code = وظيفة () {
-  العودة "أنا codding".
-}؛
+Developer.prototype = Object.create(Human.prototype);
+Developer.prototype.code = function () {
+  return "I'm codding";
+};
 
-myModule.service ( 'الإنسان'، الإنسان)؛
-myModule.service ( 'مطور، المطور)؛
+myModule.service('Human', Human);
+myModule.service('Developer', Developer);
 
-`` `
+```
 
 * للحصول على مخبأ الدورة، يمكنك استخدام `$ cacheFactory`. وينبغي أن تستخدم لتخزين نتائج الاستعلام أو العمليات الحسابية الثقيلة.
 * إذا خدمة معينة تتطلب التكوين، تعيين الخدمة كمقدم وتكوينه وذلك في رد `config`:
 
-`` جافا سكريبت
-angular.module ( 'عرض'، [])
-.config (وظيفة ($ توفير) {
-  $ Provide.provider ( "عينة"، وظيفة () {
-    فار فو = 42؛
-    {عودة
-      setFoo: وظيفة (و) {
-        و = فو.
-      }،
-      $ احصل على: وظيفة () {
-        {عودة
-          فو فو
-        }؛
-      }
-    }؛
-  })؛
-})؛
+```JavaScript
+angular.module('demo', [])
+.config(function ($provide) {
+  $provide.provider('sample', function () {
+    var foo = 42;
+    return {
+      setFoo: function (f) {
+        foo = f;
+      },
+      $get: function () {
+        return {
+          foo: foo
+        };
+      }
+    };
+  });
+});
 
-فار = عرض angular.module ( 'عرض')؛
+var demo = angular.module('demo');
 
-demo.config (وظيفة (sampleProvider) {
-  sampleProvider.setFoo (41)؛
-})؛
-`` `
+demo.config(function (sampleProvider) {
+  sampleProvider.setFoo(41);
+});
+```
 
 #Gabarits
 
@@ -519,18 +518,18 @@ demo.config (وظيفة (sampleProvider) {
 * عندما كنت في حاجة لتحديد `src` صورة حيوي، use` نانوغرام src` بدلا من` with` src` {} {} `في القالب. هذا هو السماح لدينامية التحديث؟ (NLDT)
 * بدلا من استخدام نطاق المتغير $ كسلسلة واستخدامها مع atribut style` و`` {{}} `استخدام Directive` نانوغرام style` مع المعلمات الكائن كما ونطاق المتغيرات كقيم:
 
-`` HTML
+```HTML
 <script>
 ...
-$ Scope.divStyle = {
-  عرض: 200
-  الموقف: قريب "
-}؛
+$scope.divStyle = {
+  width: 200,
+  position: 'relative'
+};
 ...
-</ script>
+</script>
 
-<div النمط = نانوغرام "divStyle"> بلدي على غرار الجميلة شعبة خامسة ستعمل في IE </ div>.
-`` `
+<div ng-style="divStyle">my beautifully styled div which will work in IE</div>;
+```
 
 #Routage
 
