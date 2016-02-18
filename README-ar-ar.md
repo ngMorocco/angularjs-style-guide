@@ -1,4 +1,3 @@
-<section dir="rtl">
 
 #مقدمة
 
@@ -53,7 +52,7 @@
 
 * إنشاء قسم رفيع المستوى من نوع المكون وأقل ميزة تقسيم. في هذه الطريقة، فإن بنية الدليل تبدو
 
-`` `
+```
 .
 ├── app
 │   ├── app.js
@@ -83,11 +82,11 @@
 ├── partials
 ├── lib
 └── test
-`` `
+```
 
 * إنشاء قسم رفيع المستوى من الأداء الوظيفي وانخفاض نوع مستوى المكونات. هنا مخطط له:
 
-`` `
+```
 .
 ├── app
 │   ├── app.js
@@ -121,11 +120,11 @@
 ├── partials
 ├── lib
 └── test
-`` `
+```
 
 * عند وضع مبادئ توجيهية، فإنه قد يكون من المناسب وضع كافة الملفات المرتبطة التوجيه (قوالب، CSS ملفات / ساس، وجافا سكريبت) في مجلد واحد. إذا اخترت استخدام هذا النمط شجرة، تكون متسقة واستخدامها في جميع أنحاء المشروع.
 
-`` `
+```
 app
 └── directives
     ├── directive1
@@ -136,13 +135,13 @@ app
         ├── directive2.html
         ├── directive2.js
         └── directive2.sass
-`` `
+```
 
 هذا النهج يمكن الجمع بين كل من بنية الدليل أعلاه.
 
 * والتي كانت واحدة الاختلاف الأخير من بنية الدليل اثنين في [نغ-النمطي] (http://joshdmiller.github.io/ng-boilerplate/#/home). في ذلك، وحدة الاختبارات لمكون معين في نفس المجلد مثل عنصر. بهذه الطريقة، عند تغيير عنصر معين، فمن السهل أن تجد تجاربها. الاختبارات أيضا أن تأخذ مكان لإظهار الوثائق واستخدام الحالات.
 
-`` `
+```
 services
 ├── cache
 │   ├── cache1.js
@@ -150,7 +149,7 @@ services
 └── models
     ├── model1.js
     └── model1.spec.js
-`` `
+```
 
 * و`ملف app.js` يحتوي على تعريف الطرق والتكوين و / أو فتيلة اليدوي (إذا لزم الأمر).
 * يجب أن يحتوي كل ملف جافا سكريبت عنصر واحد فقط. يجب تسمية الملف مع اسم المكون.
@@ -164,7 +163,7 @@ services
 
 [TLDR;](http://developer.yahoo.com/blogs/ydn/high-performance-sites-rule-6-move-scripts-bottom-7200.html) وضع البرامج النصية أسفل جدا.
 
-`` `
+```
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -179,17 +178,17 @@ services
   <script src="app.js"></script>
 </body>
 </html>
-`` `
+```
 
 حفظ الأشياء بسيطة وإلى مبادئ توجيهية محددة من AngularJS آخر. بهذه الطريقة فمن السهل للتحقق من رمز وايجاد تحسينات في HTML التي يقدمها الإطار (الذي يفيد الصيانة).
 
-`` `
+```
 <form class="frm" ng-submit="login.authenticate()">
   <div>
     <input class="ipt" type="text" placeholder="name" require ng-model="user.name">
   </div>
 </form>
-`` `
+```
 
 يجب أن سمات HTML أخرى متابعة توصيات [رمز الدليل] (http://mdo.github.io/code-guide/#html-attribute-order) مارك أوتو.
 
@@ -236,13 +235,13 @@ gulp.src ( "./ SRC / *. شبيبة")
 * لا تستخدم البادئة `` $ لأسماء المتغيرات والخصائص والأساليب. محجوز هذا بادئة لAngularJS الاستخدام.
 * عندما حل تبعيات التبعيات من نظام حقن (التبعية حقن، DI) من AngularJS، نوع تبعيات في نوع و[مدش]؛ تبعيات متكاملة AngularJS الأول، وجاء لك:
 
-`` `javascript
+```javascript
 module.factory('Service', function ($rootScope, $timeout, MyCustomDependency1, MyCustomDependency2) {
   return {
     //Something
   };
 });
-`` `
+```
 
 #Modules
 
@@ -266,7 +265,7 @@ module.factory('Service', function ($rootScope, $timeout, MyCustomDependency1, M
 module.controller('MyCtrl', ['dependency1', 'dependency2', ..., 'dependencyn', function (dependency1, dependency2, ..., dependencyn) {
   //...body
 }]);
-`` `
+```
 
 هذا التعريف يتجنب المشاكل مع تصغير الحجم. يمكنك توليد تعريف المصفوفة تلقائيا باستخدام أدوات مثل [نغ-علق] (https://github.com/olov/ng-annotate) (ومهمة نخر [نخر-NG-علق] (HTTPS : //github.com/mzgol/grunt-ng-annotate)).
 * استخدام الأسماء الأصلية من تبعيات وحدة تحكم. هذا وسوف تساعدك على إنتاج رمز أكثر قابلية للقراءة:
@@ -275,7 +274,7 @@ module.controller('MyCtrl', ['dependency1', 'dependency2', ..., 'dependencyn', f
 module.controller('MyCtrl', ['$scope', function (s) {
   //...body
 }]);
-`` `
+```
 
 أقل قابلية للقراءة
 
@@ -545,4 +544,3 @@ $scope.divStyle = {
 
 لأن هذا دليل أسلوب يهدف إلى أن يكون مشروع المجتمع، هي محل تقدير كبير المساهمات. على سبيل المثال، يمكنك المساهمة من خلال تطوير [الاختبارات] المقطع (# اختبارات) أو عن طريق ترجمة دليل في لغتك.
 
-</section>
