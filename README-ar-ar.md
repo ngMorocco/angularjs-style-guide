@@ -3,7 +3,8 @@
 
 
 
-هذا الدليل هو الترجمة العربية   [AngularJS style guide](https://github.com/mgechev/angularjs-style-guide).
+.[AngularJS style guide](https://github.com/mgechev/angularjs-style-guide)
+هذا الدليل هو الترجمة العربية   
 
 الغرض من دليل الاسلوب هذا هو توضيح لمجموعة من أفضل الممارسات والمبادئ التوجيهية لأسلوب البرمجةعن طريق التطبيق AngularJS.
 
